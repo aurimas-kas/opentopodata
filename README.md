@@ -110,7 +110,7 @@ The following datasets are available on the public API:
 * [EU-DEM](https://www.opentopodata.org/datasets/eudem/)
 * [Mapzen](https://www.opentopodata.org/datasets/mapzen/)
 * [NED 10m](https://www.opentopodata.org/datasets/ned/)
-* [NZ DEM](https://www.opentopodata.org/datasets/nzdem/)
+* [NZ DEM](https://www.opentopodata.org/datasets/nzdem8m/)
 * [SRTM (30m or 90m)](https://www.opentopodata.org/datasets/srtm/)
 * [EMOD Bathymetry](https://www.opentopodata.org/datasets/emod2018/)
 * [GEBCO Bathymetry](https://www.opentopodata.org/datasets/gebco2020/)

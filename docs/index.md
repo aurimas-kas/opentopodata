@@ -114,7 +114,7 @@ The following datasets are available on the public API, with elevation shown for
 			<td>8&nbsp;m</td>
 			<td>New Zealand.</td>
 			<td><a href="https://data.linz.govt.nz/layer/51768-nz-8m-digital-elevation-model-2012/">LINZ</a></td>
-			<td><a href="https://api.opentopodata.org/v1/nzdem?locations=39.747114,-104.996334"><em>Not in dataset bounds</em></a></td>
+			<td><a href="https://api.opentopodata.org/v1/nzdem8m?locations=39.747114,-104.996334"><em>Not in dataset bounds</em></a></td>
 		</tr>
 		<tr>
 			<td><a href="/datasets/ned/">ned10m</a></td>
