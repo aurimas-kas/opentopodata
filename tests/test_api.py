@@ -525,7 +525,7 @@ class TestDatasetsEndpoint:
         assert rjson["status"] == "OK"
         assert "results" in rjson
         datasets = rjson["results"]
-        assert len(datasets) == 7
+        assert len(datasets) == 8
         assert all(d["name"] for d in datasets)
 
         # Check multi-dataset has children.

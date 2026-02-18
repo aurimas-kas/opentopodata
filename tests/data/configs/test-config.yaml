@@ -4,6 +4,9 @@ datasets:
 - name: etopo1deg
   path: tests/data/datasets/test-etopo1-resampled-1deg/
 
+- name: etopo1deg2
+  path: tests/data/datasets/test-etopo1-resampled-1deg/ETOPO1_Ice_g_geotiff.resampled-1deg.tif
+
 - name: srtm90subset
   path: tests/data/datasets/test-srtm90m-subset/
   wgs84_bounds:

@@ -208,7 +208,7 @@ class Dataset(abc.ABC):
             return MultiDataset(name, kwargs["child_datasets"])
 
         # Check the dataset is there.
-        if not os.path.isdir(path):
+        if not os.path.isdir(path) and not os.path.isfile(path):
             raise ConfigError("No dataset folder found at location '{}'".format(path))
 
         # Find all the files in the dataset.
@@ -216,7 +216,7 @@ class Dataset(abc.ABC):
         all_paths = list(glob(pattern, recursive=True))
         all_files = [p for p in all_paths if os.path.isfile(p)]
         all_rasters = [p for p in all_files if not cls._is_aux_file(p)]
-        if not all_rasters:
+        if not all_rasters and not os.path.isfile(path):
             msg = f"Dataset folder '{path}' is empty after ignoring folders and aux files."
             msg += f" {len(all_paths)} paths were found and {len(all_files)} files."
             raise ConfigError(msg)
@@ -231,9 +231,10 @@ class Dataset(abc.ABC):
                 kwargs["wgs84_bounds"]["top"],
             )
 
+        is_single_raster = os.path.isfile(path)
         # Check for single file.
-        if len(all_rasters) == 1:
-            tile_path = all_rasters[0]
+        if is_single_raster or len(all_rasters) == 1:
+            tile_path = path if is_single_raster else all_rasters[0]
             try:
                 with rasterio.open(tile_path):
                     pass

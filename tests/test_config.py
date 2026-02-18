@@ -130,7 +130,7 @@ class TestLoadConfig:
     def test_complete_dataset(self, patch_config):
         conf = config.load_config()
         assert "datasets" in conf
-        assert len(conf["datasets"]) == 7
+        assert len(conf["datasets"]) == 8
 
     def test_defaults_get_overridden(self):
         path = "tests/data/configs/non-default-values.yaml"
@@ -173,6 +173,14 @@ class TestDataset:
         name = "test"
         folder = os.path.dirname(ETOPO1_GEOTIFF_PATH)
         dataset = config.Dataset.from_config(name, folder)
+        assert isinstance(dataset, config.SingleFileDataset)
+        assert dataset.name == name
+        assert dataset.tile_path == ETOPO1_GEOTIFF_PATH
+
+    def test_single_file(self, patch_config):
+        name = "test"
+        file = ETOPO1_GEOTIFF_PATH
+        dataset = config.Dataset.from_config(name, file)
         assert isinstance(dataset, config.SingleFileDataset)
         assert dataset.name == name
         assert dataset.tile_path == ETOPO1_GEOTIFF_PATH
